@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oracle Gold Scalper — Ultra-Fast Gold Scalping HFT EA for MT5</title>
+<meta name="description" content="Oracle Gold Scalper is an AI-based ultra-fast HFT gold (XAUUSD) scalping Expert Advisor for MT5 with Lifetime License, 90–95% win rate and 7+ preset risk modes — starting at $99 (50% OFF). Developed by Oracle Gold Scalper Admin." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  /* DARK + GOLD GRADIENT THEME (was green) */
+  --green-1:#B8860B;
+  --green-2:#D4AF37;
+  --green-3:#F4D03F;
+  --green-4:#FFDF60;
+  --green-5:#FFE993;
+  --green-dark:#0A0F1E;
+  --leaf:#E0B528;
+  --emerald:#F0C93C;
+  --mint:#FFE08A;
+  --lime:#F4D03F;
+  --forest:#9A7B0A;
+
+  --gold:#D4AF37;
+  --gold-2:#F4D03F;
+  --gold-dark:#9A7B0A;
+  --gold-soft:#FFE08A;
+  --gold-pale:#FFF3C4;
+
+  --navy:#F2F6FC;      /* now light heading text */
+  --navy-2:#131C30;
+  --blue:#D4AF37;
+  --royal:#F0C93C;
+
+  --silver:#C0C7D1;
+  --silver-2:#E5E9F0;
+  --teal:#00B4A6;
+  --green:#F0C93C;
+  --red:#E63946;
+  --purple:#5B2EBF;
+  --pink:#D946A0;
+  --orange:#F59E0B;
+  --cyan:#06B6D4;
+
+  --bg:#070B14;
+  --bg-2:#0B1120;
+  --panel:#0E1524;
+  --panel-2:#131C30;
+  --card:#0E1524;
+  --text:#E8EDF6;
+  --muted:#9AA7BC;
+  --line:#1E2A40;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+  --shadow-lg:0 25px 60px rgba(0,0,0,.55);
+  --glow:0 10px 30px rgba(212,175,55,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:1000;background:rgba(7,11,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,.28)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;color:#fff;font-size:20px}
+.logo .badge{width:46px;height:46px;border-radius:12px;background:linear-gradient(160deg,#131C30,#0E1524);border:1.5px solid rgba(212,175,55,.55);display:grid;place-items:center;color:var(--gold-2);font-size:20px;box-shadow:0 6px 18px rgba(212,175,55,.35);padding:6px;overflow:hidden}
+.logo .badge img{width:100%;height:100%;object-fit:contain}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{color:#C7D3E8;padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;transition:.25s}
+.nav-links a:hover{background:rgba(212,175,55,.14);color:#fff}
+.nav-cta{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;padding:10px 22px;border-radius:10px;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(212,175,55,.4);transition:.25s;border:none;cursor:pointer}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(212,175,55,.6)}
+.burger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+@media (max-width:960px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(7,11,20,.98);flex-direction:column;padding:16px;gap:6px;border-bottom:1px solid rgba(212,175,55,.3)}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:12px}
+  .burger{display:block}
+}
+
+/* ===== HERO ===== */
+.hero{position:relative;padding:80px 24px 90px;background:radial-gradient(1200px 500px at 15% -10%,rgba(212,175,55,.20),transparent 60%),radial-gradient(900px 500px at 90% 10%,rgba(91,46,191,.22),transparent 60%),linear-gradient(180deg,#05080F 0%,#0B1120 60%,#131C30 100%);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><path d='M0 30h60M30 0v60' stroke='rgba(255,255,255,.05)' stroke-width='1'/></svg>");opacity:.5}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;position:relative}
+@media (max-width:960px){.hero-inner{grid-template-columns:1fr;gap:40px}}
+.hero-left .badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);padding:8px 18px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:22px;color:#FFE993;border:1px solid rgba(212,175,55,.4)}
+.hero-left .badge i{color:var(--gold-2)}
+.hero h1{font-size:56px;font-weight:900;line-height:1.05;margin-bottom:18px;letter-spacing:-1.5px}
+.hero h1 .grad{background:linear-gradient(135deg,#FFF3C4 0%,#F4D03F 50%,#D4AF37 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .tagline{font-size:19px;color:#D7E0F0;margin-bottom:14px;line-height:1.55;max-width:640px}
+.hero .price-strip{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:18px 0 22px;padding:14px 18px;background:linear-gradient(135deg,rgba(212,175,55,.16),rgba(212,175,55,.06));border:1px solid rgba(212,175,55,.35);border-radius:14px}
+.price-strip .off{background:linear-gradient(135deg,#F59E0B,#D4AF37);color:#0A0F1E;padding:6px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:.4px}
+.price-strip .now{font-size:28px;font-weight:900;color:#fff}
+.price-strip .now small{color:#FFE08A;font-size:14px;margin-left:4px}
+.price-strip .was{color:#9AA7BC;font-size:16px;text-decoration:line-through;opacity:.85}
+.price-strip .note{color:#F4D03F;font-size:13px;font-weight:700}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:12px;font-weight:700;font-size:15px;transition:.25s;cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;box-shadow:0 8px 22px rgba(212,175,55,.45)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(212,175,55,.65)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-3px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;box-shadow:0 8px 22px rgba(212,175,55,.5)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(212,175,55,.65)}
+.hero-features{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hero-features li{list-style:none;background:rgba(255,255,255,.06);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid rgba(255,255,255,.15);color:#E8EDF6}
+.hero-features li i{color:var(--gold-2);margin-right:6px}
+.hero-right{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-card{background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1px solid rgba(212,175,55,.30);border-radius:26px;padding:34px;width:100%;max-width:420px;backdrop-filter:blur(12px);box-shadow:0 25px 60px rgba(0,0,0,.6);position:relative;overflow:hidden}
+.hero-card::before{content:"";position:absolute;top:-50%;right:-50%;width:120%;height:120%;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 60%);pointer-events:none}
+.hero-card .logo-big{width:120px;height:120px;background:linear-gradient(160deg,#131C30,#0E1524);border:1.5px solid rgba(212,175,55,.5);border-radius:22px;display:grid;place-items:center;margin:0 auto 20px;position:relative;z-index:1;padding:10px;box-shadow:0 10px 30px rgba(212,175,55,.35)}
+.hero-card .logo-big img{width:100%;height:100%;object-fit:contain}
+.hero-card h3{text-align:center;font-size:22px;font-weight:800;margin-bottom:6px;position:relative;z-index:1;color:#fff}
+.hero-card .sub{text-align:center;color:#C7D3E8;font-size:13px;margin-bottom:22px;position:relative;z-index:1}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;position:relative;z-index:1}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px;text-align:center}
+.stat .n{font-size:24px;font-weight:900;color:var(--gold-2)}
+.stat .l{font-size:12px;color:#C7D3E8;margin-top:2px}
+.hero-card .live-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,.14);color:#FFE08A;padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700;position:relative;z-index:1;margin-top:6px}
+.hero-card .live-tag .dot{width:8px;height:8px;background:#F4D03F;border-radius:50%;box-shadow:0 0 12px #F4D03F;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.4);opacity:.6}}
+@media (max-width:640px){.hero h1{font-size:38px}.hero .tagline{font-size:16px}}
+
+/* ===== SECTION SHARED ===== */
+section{padding:80px 24px;position:relative}
+.container{max-width:1280px;margin:0 auto}
+.section-head{text-align:center;max-width:820px;margin:0 auto 55px}
+.section-head .kicker{display:inline-block;background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;padding:6px 18px;border-radius:999px;font-size:12px;letter-spacing:1.2px;font-weight:700;margin-bottom:14px;text-transform:uppercase}
+.section-head h2{font-size:42px;font-weight:900;color:var(--navy);margin-bottom:12px;letter-spacing:-.8px}
+.section-head h2 .grad{background:linear-gradient(135deg,#FFF3C4,var(--gold-2) 50%,var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.section-head p{color:var(--muted);font-size:16px;max-width:640px;margin:0 auto}
+@media (max-width:640px){.section-head h2{font-size:30px}}
+
+/* ===== FEATURES ===== */
+.features{background:#0A0F1E}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.feature{background:linear-gradient(160deg,#0E1524,#131C30);border-radius:18px;padding:28px;border:1px solid var(--line);transition:.3s;position:relative;overflow:hidden}
+.feature::before{content:"";position:absolute;inset:0;background:var(--accent);opacity:0;transition:.3s;z-index:0}
+.feature:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg),var(--glow);border-color:rgba(212,175,55,.4)}
+.feature .icon{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;font-size:24px;color:#0A0F1E;margin-bottom:18px;position:relative;z-index:1;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.feature h4{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--navy);position:relative;z-index:1}
+.feature p{color:var(--muted);font-size:14.5px;position:relative;z-index:1}
+.f1 .icon{background:linear-gradient(135deg,#B8860B,#F4D03F)}
+.f2 .icon{background:linear-gradient(135deg,#F0C93C,#FFE08A)}
+.f3 .icon{background:linear-gradient(135deg,#D4AF37,#F4D03F)}
+.f4 .icon{background:linear-gradient(135deg,#9A7B0A,#F4D03F)}
+.f5 .icon{background:linear-gradient(135deg,#00B4A6,#06B6D4)}
+.f6 .icon{background:linear-gradient(135deg,#F59E0B,#F4D03F)}
+.f7 .icon{background:linear-gradient(135deg,#D4AF37,#FFF3C4)}
+.f8 .icon{background:linear-gradient(135deg,#5B2EBF,#06B6D4)}
+.f9 .icon{background:linear-gradient(135deg,#9A7B0A,#FFDF60)}
+.f10 .icon{background:linear-gradient(135deg,#06B6D4,#00B4A6)}
+.f11 .icon{background:linear-gradient(135deg,#E63946,#F59E0B)}
+.f12 .icon{background:linear-gradient(135deg,#D946A0,#F4D03F)}
+.f13 .icon{background:linear-gradient(135deg,#B8860B,#F4D03F)}
+
+/* ===== WHY ===== */
+.why{background:linear-gradient(180deg,#070B14 0%,#0B1120 100%)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.why-card{background:linear-gradient(160deg,#0E1524,#131C30);border-radius:18px;padding:28px;border-top:5px solid var(--gold-2);box-shadow:var(--shadow);transition:.3s;position:relative}
+.why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg),var(--glow)}
+.why-card .num{position:absolute;top:12px;right:16px;font-size:56px;font-weight:900;color:rgba(212,175,55,.12);line-height:1}
+.why-card h4{color:var(--navy);font-weight:800;font-size:18px;margin-bottom:10px}
+.why-card p{color:var(--muted);font-size:14.5px}
+
+/* ===== SPECS ===== */
+.specs{background:#0A0F1E}
+.specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.spec{background:linear-gradient(135deg,#0E1524,#131C30);border-radius:14px;padding:18px;border:1px solid var(--line);transition:.25s}
+.spec:hover{border-color:var(--gold-2);transform:translateY(-3px)}
+.spec .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:6px}
+.spec .value{color:var(--navy);font-size:15px;font-weight:700}
+.spec .value i{color:var(--gold-2);margin-right:6px}
+
+/* ===== Package ===== */
+.pricing{background:linear-gradient(180deg,#0B1120,#070B14)}
+.pkg-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:26px;max-width:1200px;margin:0 auto}
+.pkg-wrap-3{max-width:1280px}
+.pkg{background:linear-gradient(160deg,#0E1524,#131C30);border-radius:22px;padding:34px 28px;position:relative;overflow:hidden;border:2px solid var(--line);transition:.3s;display:flex;flex-direction:column}
+.pkg:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg),var(--glow)}
+.pkg-1{border-color:rgba(212,175,55,.55)}
+.pkg-2{border-color:var(--gold);background:linear-gradient(180deg,#131C30 0%,#201B0B 100%)}
+.pkg-3{border-color:var(--emerald);background:linear-gradient(180deg,#131C30 0%,#0F1E26 100%)}
+.pkg-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:14px;letter-spacing:.3px;text-transform:uppercase}
+.pkg-badge-2{background:linear-gradient(135deg,var(--gold),var(--orange));color:#0A0F1E}
+.pkg-badge-3{background:linear-gradient(135deg,#9A7B0A,#F4D03F);color:#0A0F1E}
+.pkg-ribbon{position:absolute;top:14px;right:-42px;background:linear-gradient(135deg,#F59E0B,#D4AF37);color:#0A0F1E;padding:6px 46px;font-size:11px;font-weight:800;letter-spacing:1.2px;transform:rotate(35deg);box-shadow:0 4px 12px rgba(212,175,55,.5)}
+.pkg-ribbon-2{background:linear-gradient(135deg,#00B4A6,#06B6D4);color:#fff}
+.pkg h3{font-size:22px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.pkg .pkg-sub{color:var(--muted);font-size:13px;margin-bottom:12px;font-weight:600}
+.pkg-price{font-size:44px;font-weight:900;color:var(--gold-2);margin-bottom:4px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.pkg-price small{font-size:16px;color:var(--muted);font-weight:600}
+.pkg-price-2{color:#F4D03F}
+.pkg-price-3{color:var(--emerald)}
+.pkg-old{color:#7C8BA5;text-decoration:line-through;font-size:16px;font-weight:600;margin-bottom:4px}
+.pkg-off{display:inline-block;background:linear-gradient(135deg,#E63946,#F59E0B);color:#fff;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:14px;letter-spacing:.3px}
+.pkg ul{list-style:none;margin:16px 0 22px;flex:1}
+.pkg ul li{padding:8px 0;color:var(--text);font-size:14px;display:flex;gap:10px;align-items:flex-start}
+.pkg ul li i{color:var(--gold-2);flex-shrink:0;margin-top:5px;font-size:13px}
+.pkg .pkg-extra{background:linear-gradient(135deg,rgba(212,175,55,.14),rgba(212,175,55,.06));border:1px dashed var(--gold);border-radius:10px;padding:12px;margin-top:8px}
+.pkg .pkg-extra i{color:var(--gold-soft)}
+
+/* ===== HOW ===== */
+.how{background:#0A0F1E}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-bottom:44px}
+.step{background:linear-gradient(160deg,#0E1524,#131C30);border-radius:16px;padding:26px;text-align:center;position:relative;border:1px solid var(--line);transition:.3s}
+.step:hover{transform:translateY(-5px);box-shadow:var(--shadow),var(--glow)}
+.step-num{width:52px;height:52px;background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:22px;margin:0 auto 14px;box-shadow:0 6px 18px rgba(212,175,55,.4)}
+.step h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.step p{color:var(--muted);font-size:13.5px}
+
+/* ===== Crypto ===== */
+.pay-wrap{background:linear-gradient(160deg,#0B1120,#16213A);border:1px solid rgba(212,175,55,.28);border-radius:24px;padding:34px;color:#fff;margin-top:20px;box-shadow:0 25px 60px rgba(0,0,0,.5)}
+.pay-wrap h3{font-size:22px;font-weight:800;margin-bottom:10px}
+.pay-wrap .sub{color:#C7D3E8;margin-bottom:20px;font-size:14.5px}
+.crypto{background:linear-gradient(135deg,#131C30 0%,#1B2A4A 100%);color:#fff;padding:20px;border-radius:14px;margin-bottom:14px;border:1px solid rgba(212,175,55,.3)}
+.crypto-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.crypto-head .name{display:flex;align-items:center;gap:10px;font-weight:700}
+.crypto-head .name i{color:var(--gold-2);font-size:20px}
+.crypto-head .amount{background:linear-gradient(135deg,var(--gold),var(--orange));color:#0A0F1E;padding:6px 14px;border-radius:999px;font-weight:800;font-size:14px}
+.addr{display:flex;align-items:center;background:rgba(0,0,0,.45);border:1px dashed rgba(255,255,255,.28);border-radius:10px;padding:12px;gap:10px;flex-wrap:wrap}
+.addr code{color:#FFE08A;font-size:14px;flex:1;word-break:break-all;font-family:'Courier New',monospace;user-select:all;-webkit-user-select:all}
+.copy{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;border:none;padding:8px 14px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:.25s;font-family:inherit}
+.copy:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(212,175,55,.5)}
+.blink-line{margin:14px 0 0;text-align:center;padding:14px;background:linear-gradient(90deg,rgba(212,175,55,.10),rgba(212,175,55,.22),rgba(212,175,55,.10));border:1px dashed var(--gold-2);border-radius:12px;font-weight:700;font-size:14.5px;color:#F4D03F;animation:blinker 1.4s linear infinite}
+.blink-line i{color:var(--gold-2);margin:0 6px}
+.blink-line a{color:#FFE08A;text-decoration:underline;font-weight:800}
+@keyframes blinker{50%{opacity:.55;color:#FFE08A}}
+.after-pay{background:linear-gradient(160deg,rgba(212,175,55,.12),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:20px;margin-top:16px}
+.after-pay h4{color:var(--gold-2);margin-bottom:10px;font-size:16px;font-weight:800;display:flex;align-items:center;gap:8px}
+.after-pay ol{padding-left:22px;color:#E8EDF6;font-size:14px}
+.after-pay ol li{padding:4px 0}
+.email-box{background:rgba(0,0,0,.4);border-radius:10px;padding:14px;margin-top:14px;text-align:center;font-size:15px;color:#FFE08A;border:1px dashed rgba(212,175,55,.4);word-break:break-all}
+.email-box a{color:#F4D03F;font-weight:800;text-decoration:underline}
+
+/* ===== Contact / Query section ===== */
+.contact{background:radial-gradient(900px 400px at 85% 20%,rgba(212,175,55,.14),transparent 60%),linear-gradient(135deg,#0B1120 0%,#16213A 45%,#0A0F1E 100%);color:#fff}
+.contact .section-head h2{color:#fff}
+.contact .section-head h2 .grad{background:linear-gradient(135deg,#FFF3C4,#F4D03F);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.contact .section-head p{color:#C7D3E8}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;max-width:1100px;margin:0 auto;align-items:center}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.contact-card{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(212,175,55,.30);border-radius:20px;padding:34px;backdrop-filter:blur(10px)}
+.contact-card h3{font-size:24px;font-weight:800;margin-bottom:10px;color:#fff}
+.contact-card p{color:#C7D3E8;font-size:15px;margin-bottom:20px}
+.contact-list{list-style:none;margin-bottom:22px}
+.contact-list li{display:flex;align-items:center;gap:12px;padding:10px 0;color:#E8EDF6;font-size:14.5px;border-bottom:1px dashed rgba(255,255,255,.14)}
+.contact-list li i{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-size:15px;flex-shrink:0}
+.contact-list li b{color:#FFE08A}
+.big-mail-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;padding:16px 30px;border-radius:14px;font-weight:800;font-size:16px;box-shadow:0 12px 28px rgba(212,175,55,.45);transition:.25s;letter-spacing:.3px}
+.big-mail-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(212,175,55,.65)}
+.big-mail-btn i{font-size:20px}
+.big-tg-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#2AABEE,#229ED9);color:#fff;padding:16px 30px;border-radius:14px;font-weight:800;font-size:16px;box-shadow:0 12px 28px rgba(42,171,238,.45);transition:.25s;letter-spacing:.3px}
+.big-tg-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(42,171,238,.65)}
+.big-tg-btn i{font-size:20px}
+.contact-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px}
+.contact-illus{text-align:center;padding:20px}
+.contact-illus .env{width:220px;height:220px;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 65%);border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;position:relative}
+.contact-illus .env i{font-size:100px;background:linear-gradient(135deg,#F4D03F,#FFE08A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.contact-illus h4{font-size:20px;font-weight:800;margin-bottom:6px}
+.contact-illus p{color:#C7D3E8;font-size:14px}
+
+/* ===== FAQs ===== */
+.faqs{background:#0A0F1E}
+.faq-cat{margin-bottom:40px}
+.faq-cat-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding:16px 20px;border-radius:14px;background:linear-gradient(135deg,var(--ch1),var(--ch2));color:#fff;box-shadow:var(--shadow)}
+.faq-cat-head .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.faq-cat-head h3{font-size:20px;font-weight:700}
+.faq-cat-head .count{margin-left:auto;background:rgba(255,255,255,.22);padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600}
+.faq-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+.faq{background:linear-gradient(160deg,#0E1524,#131C30);border:1px solid var(--line);border-radius:14px;padding:0;transition:.25s;overflow:hidden}
+.faq:hover{box-shadow:var(--shadow);border-color:var(--gold-2)}
+.faq summary{padding:16px 18px;cursor:pointer;font-weight:600;font-size:14.5px;color:var(--navy);list-style:none;display:flex;align-items:flex-start;gap:10px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"\f078";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--gold-2);transition:.25s;margin-left:auto;font-size:12px}
+.faq[open] summary::after{transform:rotate(180deg)}
+.faq .q-num{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:700;flex-shrink:0}
+.faq .ans{padding:0 18px 16px 18px;color:var(--muted);font-size:14px;line-height:1.6;border-top:1px dashed var(--line);padding-top:12px;margin-top:0}
+.faq .ans b{color:#F4D03F}
+.cat-pricing{--ch1:#B8860B;--ch2:#F4D03F}
+.cat-license{--ch1:#F0C93C;--ch2:#FFDF60}
+.cat-broker{--ch1:#F59E0B;--ch2:#D4AF37}
+.cat-spread{--ch1:#5B2EBF;--ch2:#D946A0}
+.cat-capital{--ch1:#9A7B0A;--ch2:#F4D03F}
+.cat-platform{--ch1:#00B4A6;--ch2:#06B6D4}
+.cat-vps{--ch1:#F59E0B;--ch2:#E63946}
+.cat-install{--ch1:#B8860B;--ch2:#F4D03F}
+.cat-perf{--ch1:#D4AF37;--ch2:#FFF3C4}
+.cat-support{--ch1:#D946A0;--ch2:#F59E0B}
+.cat-security{--ch1:#B8860B;--ch2:#00B4A6}
+.cat-legal{--ch1:#E63946;--ch2:#5B2EBF}
+
+/* ===== Testimonials ===== */
+.testimonials{background:linear-gradient(180deg,#0B1120,#070B14)}
+.t-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.t{background:linear-gradient(160deg,#0E1524,#131C30);border-radius:16px;padding:26px;position:relative;border:1px solid var(--line);transition:.3s}
+.t:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg),var(--glow)}
+.t::before{content:"\201C";position:absolute;top:8px;right:22px;font-size:70px;color:rgba(212,175,55,.20);font-family:Georgia,serif;line-height:1}
+.t .stars{color:#F4D03F;margin-bottom:12px;font-size:15px}
+.t p{color:var(--text);font-size:14.5px;font-style:italic;margin-bottom:14px;line-height:1.65}
+.t .acct{display:flex;gap:10px;flex-wrap:wrap;padding-top:12px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+.t .acct b{color:var(--navy)}
+
+/* ===== Terms ===== */
+.terms{background:linear-gradient(135deg,#070B14,#0B1120)}
+.terms-box{background:linear-gradient(160deg,#0E1524,#131C30);border-radius:20px;padding:34px;box-shadow:var(--shadow);border-left:6px solid var(--gold);max-width:1000px;margin:0 auto}
+.terms-box h3{color:var(--navy);font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.terms-box h3 i{color:var(--gold-soft)}
+.terms-box ul{list-style:none;color:var(--muted);font-size:14.5px}
+.terms-box ul li{padding:10px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px;align-items:flex-start}
+.terms-box ul li i{color:var(--gold-2);flex-shrink:0;margin-top:5px}
+.terms-box ul li:last-child{border-bottom:none}
+
+/* ===== Final CTA ===== */
+.final-cta{background:radial-gradient(600px 300px at 20% 30%,rgba(212,175,55,.16),transparent),linear-gradient(135deg,#05080F 0%,#0B1120 60%,#16213A 100%);color:#fff;text-align:center;padding:70px 24px;position:relative;overflow:hidden}
+.final-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 20% 30%,rgba(212,175,55,.22),transparent),radial-gradient(500px 300px at 80% 70%,rgba(91,46,191,.20),transparent)}
+.final-cta .container{position:relative}
+.final-cta h2{font-size:38px;font-weight:900;margin-bottom:14px;letter-spacing:-.8px}
+.final-cta h2 .grad{background:linear-gradient(135deg,#FFF3C4,#F4D03F);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.final-cta p{color:#C7D3E8;font-size:16px;margin-bottom:28px;max-width:640px;margin-left:auto;margin-right:auto}
+.final-cta .cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ===== Footer ===== */
+.footer{background:#05080F;color:#C7D3E8;padding:60px 24px 28px;position:relative}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px;margin-bottom:36px}
+@media (max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr}}
+.footer h4{color:#fff;font-weight:700;margin-bottom:14px;font-size:15px;display:flex;align-items:center;gap:10px}
+.footer h4 i{color:var(--gold-2)}
+.footer p, .footer li{font-size:13.5px;line-height:1.7;color:#8E9AB0}
+.footer ul{list-style:none}
+.footer a{color:#C7D3E8;transition:.25s}
+.footer a:hover{color:var(--gold-2)}
+.footer .brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer .brand-logo .badge{width:46px;height:46px;background:linear-gradient(160deg,#131C30,#0E1524);border:1.5px solid rgba(212,175,55,.5);border-radius:12px;display:grid;place-items:center;color:var(--gold-2);font-size:20px;padding:6px;overflow:hidden}
+.footer .brand-logo .badge img{width:100%;height:100%;object-fit:contain}
+.footer .brand-logo span{font-weight:800;color:#fff;font-size:20px}
+.risk{background:rgba(230,57,70,.15);border:1px solid rgba(230,57,70,.35);border-radius:10px;padding:14px 18px;font-size:12.5px;color:#ffb6bb;margin:16px 0 8px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.10);padding-top:20px;text-align:center;color:#7C8BA5;font-size:12.5px}
+.socials{display:flex;gap:10px;margin-top:14px}
+.socials a{width:38px;height:38px;background:rgba(212,175,55,.12);border-radius:10px;display:grid;place-items:center;color:#FFE08A;font-size:15px;transition:.25s;border:1px solid rgba(212,175,55,.3)}
+.socials a:hover{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E;transform:translateY(-3px)}
+
+/* Floating contact */
+.fc{position:fixed;right:22px;bottom:22px;z-index:900;display:flex;flex-direction:column;gap:12px}
+.fc-mail,.fc-top,.fc-query{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:19px;box-shadow:0 10px 24px rgba(0,0,0,.5);transition:.25s;cursor:pointer;border:none;font-family:inherit;text-decoration:none}
+.fc-mail{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E}
+.fc-query{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#0A0F1E}
+.fc-top{background:linear-gradient(135deg,#16213A,#0B1120)}
+.fc a:hover, .fc button:hover{transform:translateY(-4px)}
+
+/* Toast */
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(120%);background:linear-gradient(135deg,#131C30,#1B2A4A);border:1px solid rgba(212,175,55,.35);color:#fff;padding:14px 22px;border-radius:10px;font-weight:600;font-size:14px;z-index:1200;box-shadow:0 14px 30px rgba(0,0,0,.5);transition:.35s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast i{color:#FFE08A;margin-right:8px}
+
+/* Utility */
+.text-center{text-align:center}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="badge"><img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFF3C4'/%3E%3Cstop offset='.45' stop-color='%23F4D03F'/%3E%3Cstop offset='1' stop-color='%23B8860B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='33' fill='none' stroke='url%28%23g%29' stroke-width='17'/%3E%3Cellipse cx='37' cy='29' rx='13' ry='6.5' fill='rgba%28255,255,255,.45%29' transform='rotate%28-32 37 29%29'/%3E%3C/svg%3E" alt="Oracle Gold Scalper"/></div>
+      <div>Oracle Gold Scalper</div>
+    </div>
+    <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#why">Why Us</a>
+      <a href="#specs">Specs</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How to Buy</a>
+      <a href="#contact">Contact</a>
+      <a href="#faqs">FAQs</a>
+    </div>
+    <a href="#pricing" class="nav-cta"><i class="fa-solid fa-rocket"></i> Get Yours</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="badge"><i class="fa-solid fa-crown"></i> #1 AI Gold Scalping EA — Lifetime License</span>
+      <h1>Oracle Gold Scalper <span class="grad">— Latest Version</span></h1>
+      <p style="font-size:14px;color:#F4D03F;font-weight:600;margin:-6px 0 18px 0;letter-spacing:.3px"><i class="fa-solid fa-shield-halved"></i> Developed by <b style="color:#fff">Oracle Gold Scalper Admin</b> — Verified In-House Team</p>
+      <p class="tagline">Ultra-Fast HFT Gold (XAUUSD) Scalping Expert Advisor for <b style="color:#F4D03F">MT5</b>. Powered by AI logic with <b style="color:#FFE08A">90%–95% win rate</b>, 7+ preset risk modes, and unlimited demo accounts — all with a one-time payment.</p>
+
+      <div class="price-strip">
+        <span class="off"><i class="fa-solid fa-tag"></i> 50% OFF</span>
+        <span class="was">$199</span>
+        <span class="now">$99<small>&nbsp;USDT</small></span>
+        <span class="note"><i class="fa-solid fa-fire"></i> Limited time · Package A</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#pricing" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> Get Package A — $99</a>
+        <a href="#faqs" class="btn btn-ghost"><i class="fa-solid fa-circle-question"></i> Read 100+ FAQs</a>
+      </div>
+      <ul class="hero-features">
+        <li><i class="fa-solid fa-check"></i> One-time Payment</li>
+        <li><i class="fa-solid fa-check"></i> Lifetime License</li>
+        <li><i class="fa-solid fa-check"></i> MT5 Supported</li>
+        <li><i class="fa-solid fa-check"></i> 90%–95% Win Rate</li>
+        <li><i class="fa-solid fa-check"></i> Instant Delivery within 1 Hour</li>
+        <li><i class="fa-solid fa-check"></i> 7+ Preset .set files (risk modes)</li>
+      </ul>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="logo-big"><img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFF3C4'/%3E%3Cstop offset='.45' stop-color='%23F4D03F'/%3E%3Cstop offset='1' stop-color='%23B8860B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='33' fill='none' stroke='url%28%23g%29' stroke-width='17'/%3E%3Cellipse cx='37' cy='29' rx='13' ry='6.5' fill='rgba%28255,255,255,.45%29' transform='rotate%28-32 37 29%29'/%3E%3C/svg%3E" alt="Oracle Gold Scalper Logo"/></div>
+        <h3>Oracle Gold Scalper</h3>
+        <div class="sub">Latest Version · AI HFT Gold EA</div>
+        <div class="stat-row">
+          <div class="stat"><div class="n">90–95%</div><div class="l">Win Rate</div></div>
+          <div class="stat"><div class="n">1 Hr</div><div class="l">Instant Delivery</div></div>
+          <div class="stat"><div class="n">7+</div><div class="l">Preset Modes</div></div>
+          <div class="stat"><div class="n">MT5</div><div class="l">Fully Supported</div></div>
+        </div>
+        <div class="text-center">
+          <span class="live-tag"><span class="dot"></span> LIVE — Trading on Gold Right Now</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Product Features</div>
+      <h2>Why <span class="grad">Oracle Gold Scalper</span> Is Different</h2>
+      <p>Every feature of Oracle Gold Scalper — developed by Oracle Gold Scalper Admin — is engineered for serious gold traders who demand performance, reliability, and peace of mind.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature f1"><div class="icon"><i class="fa-solid fa-bolt-lightning"></i></div><h4>Ultra-Fast HFT Scalping</h4><p>High-Frequency Trading engine that captures micro-movements in Gold with millisecond precision.</p></div>
+      <div class="feature f2"><div class="icon"><i class="fa-solid fa-brain"></i></div><h4>AI-Based Strategy</h4><p>Powered by AI / Machine Learning logic, the EA adapts dynamically to live gold market conditions.</p></div>
+      <div class="feature f3"><div class="icon"><i class="fa-solid fa-coins"></i></div><h4>Gold-Only Specialist</h4><p>Built and back-tested exclusively for XAUUSD — no distractions, just gold mastery.</p></div>
+      <div class="feature f4"><div class="icon"><i class="fa-solid fa-infinity"></i></div><h4>Lifetime License</h4><p>One-time payment starting $99 — no expiry, no renewal. Unlimited demo accounts forever.</p></div>
+      <div class="feature f5"><div class="icon"><i class="fa-solid fa-shield-halved"></i></div><h4>Built-in SL &amp; TP</h4><p>Every trade is protected with built-in Stop Loss and Take Profit logic. News &amp; spread filters included.</p></div>
+      <div class="feature f6"><div class="icon"><i class="fa-solid fa-sliders"></i></div><h4>7+ Preset Risk Modes</h4><p>Choose from 7+ ready-to-use .set files — from conservative to aggressive — for every trading session.</p></div>
+      <div class="feature f7"><div class="icon"><i class="fa-solid fa-network-wired"></i></div><h4>Any Broker, Any Account</h4><p>Works on ECN, STP, Standard, Cent, Pro, Raw Spread, Islamic (Swap-free) and prop firm accounts.</p></div>
+      <div class="feature f8"><div class="icon"><i class="fa-solid fa-gauge-high"></i></div><h4>Fully Automatic</h4><p>Plug &amp; Play. No need to monitor charts — the bot opens, manages and closes trades on its own.</p></div>
+      <div class="feature f9"><div class="icon"><i class="fa-solid fa-chart-line"></i></div><h4>Proven Performance</h4><p>90%–95% historical win rate. Live tested across multiple market cycles &amp; volatile gold moves.</p></div>
+      <div class="feature f10"><div class="icon"><i class="fa-solid fa-laptop-code"></i></div><h4>Low System Requirement</h4><p>Runs on basic Windows 10/11 PC. VPS optional. 32-bit &amp; 64-bit compatible for MT5.</p></div>
+      <div class="feature f11"><div class="icon"><i class="fa-solid fa-lock"></i></div><h4>Encrypted &amp; Safe</h4><p>The EA does NOT send your account data to any external server. 100% private and secure.</p></div>
+      <div class="feature f12"><div class="icon"><i class="fa-solid fa-rotate"></i></div><h4>Free Lifetime Updates</h4><p>Every future improvement and set-file update is delivered free of cost via email.</p></div>
+      <div class="feature f13"><div class="icon"><i class="fa-solid fa-fingerprint"></i></div><h4>Secure Individual License Keys</h4><p>Each client gets a secure &amp; safe individual license key — protected and unique to you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="why">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Why Us</div>
+      <h2>Why Choose <span class="grad">Oracle Gold Scalper</span></h2>
+      <p>Oracle Gold Scalper Admin is a genuine, independent EA developer team — not a reseller. Every file you receive is original, verified, and built in-house.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="num">01</div><h4>100% Genuine Product</h4><p>Original developer files from Oracle Gold Scalper Admin. No cracked or pirated EA — you get the authentic Oracle Gold Scalper (Latest Version).</p></div>
+      <div class="why-card"><div class="num">02</div><h4>Lifetime + Unlimited Demo</h4><p>Pay once. Trade forever. All packages include lifetime license and unlimited demo accounts for testing.</p></div>
+      <div class="why-card"><div class="num">03</div><h4>Crypto-Verified Payment</h4><p>Pay safely with USDT (TRC20) or BNB Smart Chain (BEP20). Instant confirmation on-chain.</p></div>
+      <div class="why-card"><div class="num">04</div><h4>Instant Delivery within 1 Hour</h4><p>All 12+ files &amp; license keys are delivered to your email within 1 hour of payment confirmation.</p></div>
+      <div class="why-card"><div class="num">05</div><h4>90%–95% Win Rate</h4><p>Backed by multi-year, multi-cycle testing across bull, bear, and range gold markets.</p></div>
+      <div class="why-card"><div class="num">06</div><h4>MT5 — Only Platform Supported</h4><p>Run the EA on MetaTrader 5 seamlessly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section id="specs" class="specs">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Specifications</div>
+      <h2>Quick <span class="grad">Product Specs</span></h2>
+      <p>All the key operational details of Oracle Gold Scalper — by Oracle Gold Scalper Admin — in one quick view.</p>
+    </div>
+    <div class="specs-grid">
+      <div class="spec"><div class="label">Platform</div><div class="value"><i class="fa-solid fa-desktop"></i> MT5</div></div>
+      <div class="spec"><div class="label">Pair</div><div class="value"><i class="fa-solid fa-coins"></i> XAUUSD (Gold)</div></div>
+      <div class="spec"><div class="label">Timeframe</div><div class="value"><i class="fa-solid fa-clock"></i> M15 (Default)</div></div>
+      <div class="spec"><div class="label">Strategy</div><div class="value"><i class="fa-solid fa-bolt"></i> AI HFT Scalping</div></div>
+      <div class="spec"><div class="label">Min Balance</div><div class="value"><i class="fa-solid fa-wallet"></i> $50–$70</div></div>
+      <div class="spec"><div class="label">Win Rate</div><div class="value"><i class="fa-solid fa-trophy"></i> 90% – 95%</div></div>
+      <div class="spec"><div class="label">License</div><div class="value"><i class="fa-solid fa-infinity"></i> Lifetime</div></div>
+      <div class="spec"><div class="label">Delivery</div><div class="value"><i class="fa-solid fa-truck-fast"></i> Instant within 1 Hour</div></div>
+      <div class="spec"><div class="label">Preset Modes</div><div class="value"><i class="fa-solid fa-sliders"></i> 7+ Risk / Session Presets</div></div>
+      <div class="spec"><div class="label">Broker</div><div class="value"><i class="fa-solid fa-building-columns"></i> Any Broker</div></div>
+      <div class="spec"><div class="label">Payment</div><div class="value"><i class="fa-brands fa-bitcoin"></i> USDT (TRC20 / BEP20)</div></div>
+      <div class="spec"><div class="label">Support</div><div class="value"><i class="fa-solid fa-headset"></i> Lifetime</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING (3 packages) -->
+<section id="pricing" class="pricing">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Pricing</div>
+      <h2>Choose Your <span class="grad">Lifetime Package</span></h2>
+      <p>No subscriptions. No surprises. Three one-time options — all with lifetime license &amp; instant delivery. <b style="color:var(--red)">50% OFF — Limited Days Only.</b></p>
+    </div>
+
+    <div class="pkg-wrap pkg-wrap-3">
+      <!-- PACKAGE A -->
+      <div class="pkg pkg-1">
+        <span class="pkg-badge">🥉 PACKAGE A · STARTER</span>
+        <h3>Oracle Gold Scalper — Package A</h3>
+        <div class="pkg-sub">MT5 Robot · 1 Real Account &amp; Unlimited Demo</div>
+        <div class="pkg-old">Regular Price: $199</div>
+        <div class="pkg-price">$99 <small>USDT</small></div>
+        <div class="pkg-off"><i class="fa-solid fa-tag"></i> 50% OFF · Few Days Only</div>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> <b>1 Real Account</b> + Unlimited Demo Accounts</li>
+          <li><i class="fa-solid fa-circle-check"></i> Lifetime License and Support</li>
+          <li><i class="fa-solid fa-circle-check"></i> Original Robot file (Latest Version)</li>
+          <li><i class="fa-solid fa-circle-check"></i> 7+ Preset setting files (risk modes &amp; sessions)</li>
+          <li><i class="fa-solid fa-circle-check"></i> Installation Setup Guide — PDF and Video</li>
+          <li><i class="fa-solid fa-circle-check"></i> Detailed Instructions of Use — PDF</li>
+          <li><i class="fa-solid fa-circle-check"></i> Free Lifetime Updates</li>
+          <li><i class="fa-solid fa-circle-check"></i> Total <b>12+ files</b> delivered to your Email</li>
+          <li><i class="fa-solid fa-circle-check"></i> Explanation &amp; Use of all Input Parameters — PDF</li>
+          <li><i class="fa-solid fa-circle-check"></i> DO's and DON'Ts Acts</li>
+          <li><i class="fa-solid fa-circle-check"></i> Secure &amp; Safe Individual License Keys</li>
+        </ul>
+        <a href="#how" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Get Package A — $99</a>
+      </div>
+
+      <!-- PACKAGE B -->
+      <div class="pkg pkg-2">
+        <span class="pkg-badge pkg-badge-2">🥈 PACKAGE B · PRO</span>
+        <span class="pkg-ribbon">MOST POPULAR</span>
+        <h3>Oracle Gold Scalper — Package B</h3>
+        <div class="pkg-sub">MT5 · Unlimited Real &amp; Unlimited Demo</div>
+        <div class="pkg-old">Regular Price: $299</div>
+        <div class="pkg-price pkg-price-2">$149 <small>USDT</small></div>
+        <div class="pkg-off"><i class="fa-solid fa-tag"></i> 50% OFF · Few Days Only</div>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> <b>Unlimited Real</b> + Unlimited Demo Accounts</li>
+          <li><i class="fa-solid fa-circle-check"></i> Lifetime License and Support</li>
+          <li><i class="fa-solid fa-circle-check"></i> Original Robot file (Latest Version)</li>
+          <li><i class="fa-solid fa-circle-check"></i> 7+ Preset setting files (risk modes &amp; sessions)</li>
+          <li><i class="fa-solid fa-circle-check"></i> Installation Setup Guide — PDF and Video</li>
+          <li><i class="fa-solid fa-circle-check"></i> Detailed Instructions of Use — PDF</li>
+          <li><i class="fa-solid fa-circle-check"></i> Free Lifetime Updates</li>
+          <li><i class="fa-solid fa-circle-check"></i> Total <b>12+ files</b> delivered to your Email</li>
+          <li><i class="fa-solid fa-circle-check"></i> Explanation &amp; Use of all Input Parameters — PDF</li>
+          <li><i class="fa-solid fa-circle-check"></i> DO's and DON'Ts Acts</li>
+          <li><i class="fa-solid fa-circle-check"></i> Secure &amp; Safe Individual License Keys</li>
+        </ul>
+        <a href="#how" class="btn btn-primary"><i class="fa-solid fa-gem"></i> Get Package B — $149</a>
+      </div>
+
+      <!-- PACKAGE C -->
+      <div class="pkg pkg-3">
+        <span class="pkg-badge pkg-badge-3">🥇 PACKAGE C · SOURCE CODE</span>
+        <span class="pkg-ribbon pkg-ribbon-2">BEST VALUE</span>
+        <h3>Oracle Gold Scalper — Package C</h3>
+        <div class="pkg-sub">Everything in B <b style="color:var(--emerald)">+ Full Source Code</b></div>
+        <div class="pkg-old">Regular Price: $1999</div>
+        <div class="pkg-price pkg-price-3">$999 <small>USDT</small></div>
+        <div class="pkg-off"><i class="fa-solid fa-tag"></i> 50% OFF · Few Days Only</div>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> <b>Unlimited Real</b> + Unlimited Demo Accounts</li>
+          <li><i class="fa-solid fa-circle-check"></i> Lifetime License and Support</li>
+          <li><i class="fa-solid fa-circle-check"></i> Original Robot file (Latest Version)</li>
+          <li><i class="fa-solid fa-circle-check"></i> 7+ Preset setting files (risk modes &amp; sessions)</li>
+          <li><i class="fa-solid fa-circle-check"></i> Installation Setup Guide — PDF and Video</li>
+          <li><i class="fa-solid fa-circle-check"></i> Detailed Instructions of Use — PDF</li>
+          <li><i class="fa-solid fa-circle-check"></i> Free Lifetime Updates</li>
+          <li><i class="fa-solid fa-circle-check"></i> Total <b>12+ files</b> delivered to your Email</li>
+          <li><i class="fa-solid fa-circle-check"></i> Explanation &amp; Use of all Input Parameters — PDF</li>
+          <li><i class="fa-solid fa-circle-check"></i> DO's and DON'Ts Acts</li>
+          <li><i class="fa-solid fa-circle-check"></i> Secure &amp; Safe Individual License Keys</li>
+          <li class="pkg-extra"><i class="fa-solid fa-star"></i> <b>SPECIAL:</b> <b style="color:var(--emerald)">.mq4 or .mq5 Full Source Code Files</b> with Secured Licensing System</li>
+        </ul>
+        <a href="#how" class="btn btn-primary"><i class="fa-solid fa-crown"></i> Get Package C — $999</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO PURCHASE -->
+<section id="how" class="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">How to Purchase</div>
+      <h2>Buy in <span class="grad">5 Simple Steps</span></h2>
+      <p>Pay via USDT and receive Oracle Gold Scalper — with all files, license keys and setup guide — within 1 hour.</p>
+    </div>
+    <div class="how-grid">
+      <div class="step"><div class="step-num">1</div><h4>Read all FAQs</h4><p>Read all FAQs carefully and make sure all your doubts are fully cleared before paying.</p></div>
+      <div class="step"><div class="step-num">2</div><h4>Send $99 / $149 / $999 USDT</h4><p>Choose your package (A, B or C) and send the exact amount in USDT to the wallet shown below.</p></div>
+      <div class="step"><div class="step-num">3</div><h4>Email Us the Proof</h4><p>Email a screenshot of the transaction along with your MT5 ID, Server Name, Email &amp; Country.</p></div>
+      <div class="step"><div class="step-num">4</div><h4>We Verify</h4><p>We verify the payment on-chain and generate your unique &amp; secure license key.</p></div>
+      <div class="step"><div class="step-num">5</div><h4>Instant Delivery in 1 Hour</h4><p>Receive all 12+ files, license keys, setup PDF &amp; installation video in your email within 1 hour.</p></div>
+    </div>
+
+    <div class="pay-wrap">
+      <h3><i class="fa-solid fa-credit-card" style="color:var(--gold-2)"></i> Send Payment — $99 (Pkg A) / $149 (Pkg B) / $999 (Pkg C) USDT</h3>
+      <p class="sub">We accept crypto only. Use any one of the wallets below. <b style="color:var(--gold-2)">Double-verify the address character-by-character before sending.</b></p>
+
+      <div class="crypto">
+        <div class="crypto-head">
+          <div class="name"><i class="fa-brands fa-bitcoin"></i> USDT — TRC20 (Tron Network)</div>
+          <div class="amount">$99 / $149 / $999 USDT</div>
+        </div>
+        <div class="addr">
+          <code id="addr1">TTzjEY4JwmMxQ3rc6f26geXth47bHkJze2</code>
+          <button class="copy" onclick="copyAddr('addr1')"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <div style="font-size:12.5px;color:#BFD0E8;margin-top:8px"><i class="fa-solid fa-triangle-exclamation" style="color:var(--gold-2)"></i> Send only USDT on the TRC20 network. Sending on any other network will result in permanent loss.</div>
+      </div>
+
+      <div class="crypto">
+        <div class="crypto-head">
+          <div class="name"><i class="fa-brands fa-bitcoin"></i> USDT — BEP20 (BNB Smart Chain)</div>
+          <div class="amount">$99 / $149 / $999 USDT</div>
+        </div>
+        <div class="addr">
+          <code id="addr2">0xF7992B54D4432E4Dc7156C9e39a9aEF34d52aA85</code>
+          <button class="copy" onclick="copyAddr('addr2')"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <div style="font-size:12.5px;color:#BFD0E8;margin-top:8px"><i class="fa-solid fa-triangle-exclamation" style="color:var(--gold-2)"></i> Send only USDT on the BEP20 (BNB Smart Chain) network.</div>
+      </div>
+
+      <div class="blink-line">
+        <i class="fa-solid fa-bell"></i> If you want to pay via another payment method — Please go to <a href="#contact">Contact Page</a> and message Admin on Telegram or Email <i class="fa-solid fa-bell"></i>
+      </div>
+
+      <div class="after-pay">
+        <h4><i class="fa-solid fa-envelope-circle-check"></i> After Successful Payment — Email Us These 5 Details</h4>
+        <ol>
+          <li>MT5 ID (at least one Real Account number)</li>
+          <li>Server Name</li>
+          <li>Screenshot of the transaction</li>
+          <li>Your Email</li>
+          <li>Your Country</li>
+        </ol>
+        <div class="email-box">
+          <i class="fa-solid fa-paper-plane"></i> Send the above details to:
+          <br/>
+          <a href="#" data-mailto="1"><span class="em-txt"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT US OR QUERY -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Contact Us</div>
+      <h2>Contact Us <span class="grad">Or Query</span></h2>
+      <p>Have a question, a custom request, or want to pay via a different method? Tap Telegram to chat with Admin instantly, or Email to open your Gmail app directly with the message pre-filled.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3><i class="fa-solid fa-headset" style="color:#F4D03F"></i> We're here to help</h3>
+        <p>Reach out to the Oracle Gold Scalper Admin team for pre-sale questions, custom pricing, alternate payment methods, licensing, installation help or general enquiries.</p>
+        <ul class="contact-list">
+          <li><i class="fa-brands fa-telegram" style="color:#2AABEE"></i> Telegram: <b><a href="https://t.me/m/tYe0k8ctZWQ1" target="_blank" rel="noopener" style="color:#2AABEE">Admin Chat — Click to Open</a></b></li>
+          <li><i class="fa-solid fa-envelope"></i> Email: <b><a href="#" data-mailto="1"><span class="em-txt"></span></a></b></li>
+          <li><i class="fa-solid fa-clock"></i> Response Time: <b>within 1–2 hours</b></li>
+          <li><i class="fa-solid fa-globe"></i> Support: <b>Worldwide · 24×7</b></li>
+          <li><i class="fa-solid fa-shield-halved"></i> Language: <b>English Only</b></li>
+        </ul>
+        <div class="contact-btns">
+          <a class="big-tg-btn" href="https://t.me/m/tYe0k8ctZWQ1" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Chat on Telegram</a>
+          <a class="big-mail-btn" href="#" data-mailto="1">
+          <i class="fa-solid fa-paper-plane"></i> Send Email to Admin
+                  </a>
+        </div>
+        <p style="margin-top:14px;font-size:12.5px;color:#FFE08A"><i class="fa-solid fa-mobile-screen"></i> Tapping these buttons redirects you instantly — Telegram opens the Telegram app &amp; Email opens your Gmail app with the message ready to send.</p>
+      </div>
+      <div class="contact-illus">
+        <div class="env"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <h4>One-Tap Contact</h4>
+        <p>Fill your query &amp; send — replies within 1–2 hours from Oracle Gold Scalper Admin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section id="faqs" class="faqs">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Frequently Asked Questions</div>
+      <h2>100+ <span class="grad">Detailed FAQs</span></h2>
+      <p>Every real trader-question answered — payment, license, brokers, platforms, capital, VPS, installation, performance, support, security &amp; legal.</p>
+    </div>
+
+    <!-- Package & Pricing -->
+    <div class="faq-cat cat-pricing">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-box-open"></i></div><h3>🅐 Package &amp; Pricing Related Questions</h3><div class="count">8 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q1</span> What packages are available for Oracle Gold Scalper?</summary><div class="ans"><b>Three Lifetime Packages — Package A ($99 · 50% OFF from $199), Package B ($149 · 50% OFF from $299) and Package C — Full Source Code ($999 · 50% OFF from $1999).</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q2</span> What is the price of each package?</summary><div class="ans"><b>Package A — $99 (1 Real + Unlimited Demo). Package B — $149 (Unlimited Real + Unlimited Demo). Package C — $999 (Unlimited Real + Unlimited Demo + Full Source Code).</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q3</span> Do you offer any discount, festive offer, or bulk purchase discount?</summary><div class="ans"><b>YES — 50% OFF running on all 3 packages for a few days only.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q4</span> Is there any trial version or demo version available before purchase?</summary><div class="ans"><b>NO. But all packages include Unlimited Demo Accounts after purchase.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q5</span> What is included in the package (EA file, set files, user manual, installation support)?</summary><div class="ans"><b>All of the Above [Total 12+ Files] delivered via email — includes robot, 7+ preset .set files, PDF manuals &amp; installation video.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q6</span> Do you provide a money-back guarantee or refund policy?</summary><div class="ans"><b>NO — All payments are non-refundable and non-adjustable.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q7</span> What payment methods do you accept?</summary><div class="ans"><b>Only Crypto Currencies (USDT TRC20 &amp; BEP20). For any alternate payment method — please contact the admin via the Contact Us section.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q8</span> Will I get an invoice/receipt after payment?</summary><div class="ans"><b>Yes.</b></div></details>
+      </div>
+    </div>
+
+    <!-- License -->
+    <div class="faq-cat cat-license">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-key"></i></div><h3>🅑 License &amp; Validity Related Questions</h3><div class="count">10 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q11</span> What is the validity period of the license (Monthly / Yearly / Lifetime)?</summary><div class="ans"><b>Lifetime.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q12</span> Is the license tied to one account number or can it be used on multiple accounts?</summary><div class="ans"><b>Package A — 1 Real Account + Unlimited Demo. Package B &amp; C — Unlimited Real + Unlimited Demo Accounts.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q13</span> How many live accounts and demo accounts can I use with one license?</summary><div class="ans"><b>Package A: 1 Live + Unlimited Demo. Package B &amp; C: Unlimited Live &amp; Unlimited Demo Accounts with License Keys.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q14</span> Can the license be transferred to another account if I change brokers?</summary><div class="ans"><b>YES.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q15</span> What is the renewal cost after expiry?</summary><div class="ans"><b>NO Expiry, No Cost.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q16</span> Will I receive free updates during the license period?</summary><div class="ans"><b>YES — Free Lifetime Updates.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q17</span> What happens if my account number changes — do I have to pay again?</summary><div class="ans"><b>NO.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q18</span> Is the license linked to MT5 account number?</summary><div class="ans"><b>Yes — MT5 supported.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q19</span> How will the license be activated (auto activation or manual)?</summary><div class="ans"><b>Automatically — via your Secure &amp; Safe Individual License Key.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q20</span> What happens if I lose access to my licensed account?</summary><div class="ans"><b>Contact Admin at <a href="#" data-mailto="1"><span class="em-txt"></span></a>.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Broker -->
+    <div class="faq-cat cat-broker">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-building-columns"></i></div><h3>🅒 Broker &amp; Account Type Related Questions</h3><div class="count">10 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q21</span> Which brokers do you recommend for best performance?</summary><div class="ans"><b>Any Broker.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q22</span> Will this EA work on any broker or only specific brokers?</summary><div class="ans"><b>Any Broker.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q23</span> Does the EA work on ECN, STP, or Standard accounts?</summary><div class="ans"><b>All of Above.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q24</span> Which account type gives the best results (Raw Spread / Standard / Cent / Pro)?</summary><div class="ans"><b>All types of Accounts.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q25</span> Is the EA tested on regulated brokers (FCA, ASIC, CySEC)?</summary><div class="ans"><b>Yes.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q26</span> Do you have any affiliate/partner broker recommendation?</summary><div class="ans"><b>NO.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q27</span> Will the EA work on offshore brokers as well?</summary><div class="ans"><b>Yes.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q28</span> Does the broker need to allow scalping and hedging?</summary><div class="ans"><b>Allowed.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q29</span> Is the EA compatible with Islamic (Swap-free) accounts?</summary><div class="ans"><b>Yes.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q30</span> Does the EA work on prop firm challenges (FTMO, MyForexFunds, etc.)?</summary><div class="ans"><b>Yes.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Spread -->
+    <div class="faq-cat cat-spread">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-chart-column"></i></div><h3>🅓 Spread, Commission &amp; Trading Conditions</h3><div class="count">8 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q31</span> What is the maximum allowed spread for the EA to function?</summary><div class="ans"><b>All Allowed.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q32</span> Does high spread affect performance?</summary><div class="ans"><b>Not Really.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q33</span> Is the EA sensitive to slippage and requotes?</summary><div class="ans"><b>Smoothly Handled.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q34</span> What execution speed (latency) is required?</summary><div class="ans"><b>Any Latency.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q35</span> Does commission affect profitability?</summary><div class="ans"><b>No.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q36</span> What is the recommended commission per lot?</summary><div class="ans"><b>NA.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q37</span> Will news events affect EA performance?</summary><div class="ans"><b>NO — Even better performance During News.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q38</span> Does the EA have a news filter / spread filter built in?</summary><div class="ans"><b>Yes — You can Enable or Disable.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Capital -->
+    <div class="faq-cat cat-capital">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-sack-dollar"></i></div><h3>🅔 Capital &amp; Risk Related Questions</h3><div class="count">8 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q39</span> What is the minimum balance required to start with this EA?</summary><div class="ans"><b>50 to 70 USD.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q40</span> What is the recommended balance for safe trading?</summary><div class="ans"><b>100 USD.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q41</span> What lot size should I start with?</summary><div class="ans"><b>0.01.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q42</span> What is the recommended risk per trade (%)?</summary><div class="ans"><b>Default.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q43</span> What is the maximum drawdown expected?</summary><div class="ans"><b>Default.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q44</span> What is the historical monthly ROI / average profit?</summary><div class="ans"><b>10 to 20 Times.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q45</span> Is there a stop loss and take profit built-in?</summary><div class="ans"><b>Yes.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q46</span> Can I customize lot size and risk settings?</summary><div class="ans"><b>Yes, Absolutely.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Platform -->
+    <div class="faq-cat cat-platform">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-desktop"></i></div><h3>🅕 Platform &amp; Technical Requirements</h3><div class="count">10 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q49</span> Does the EA support MT5, or both?</summary><div class="ans"><b>Yes — MT5 supported.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q50</span> What is the minimum system requirement (RAM, CPU, OS)?</summary><div class="ans"><b>Basic System.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q51</span> Will it work on Windows 10 / Windows 11 / Mac / Linux?</summary><div class="ans"><b>Any with MT5 installed.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q52</span> Is the EA 32-bit or 64-bit compatible?</summary><div class="ans"><b>Both Compatible.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q53</span> Do I need any additional software/plugin to run it?</summary><div class="ans"><b>No.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q54</span> Is the EA DLL-based or pure MQL coded?</summary><div class="ans"><b>Not Required.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q55</span> What time frame does it work on (M1, M5, M15, H1)?</summary><div class="ans"><b>Default M15.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q56</span> Which currency pair does it trade (only XAUUSD / Gold or others)?</summary><div class="ans"><b>XAUUSD (Gold).</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q57</span> Does the EA work 24/5 or only during specific sessions?</summary><div class="ans"><b>24×7 (can be tuned via 7+ session preset .set files).</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q58</span> What GMT time setting should the broker be on?</summary><div class="ans"><b>Default MT5.</b></div></details>
+      </div>
+    </div>
+
+    <!-- VPS -->
+    <div class="faq-cat cat-vps">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-server"></i></div><h3>🅖 VPS &amp; Internet Related Questions</h3><div class="count">9 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q59</span> Do I need a VPS to run this EA, or can I run it on my personal PC?</summary><div class="ans"><b>Both are OK. VPS is recommended for 24×7 uninterrupted trading.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q60</span> Which VPS provider do you recommend?</summary><div class="ans"><b>Any reliable VPS with MT5 support.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q61</span> What is the minimum VPS spec (RAM, CPU, latency) for smooth trading?</summary><div class="ans"><b>2 GB RAM &amp; 2 vCPU is enough.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q62</span> Does the EA work smoothly on slow internet connections?</summary><div class="ans"><b>Yes.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q63</span> What happens if my VPS/PC shuts down suddenly?</summary><div class="ans"><b>EA safely resumes on restart with existing SL/TP intact.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q64</span> Is a VPS necessary for consistent profits?</summary><div class="ans"><b>Recommended, but not compulsory.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q65</span> Do you provide VPS setup guidance?</summary><div class="ans"><b>Yes — inside the Installation Setup Guide PDF &amp; Video.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q66</span> Can I run this EA on my mobile MT5 app?</summary><div class="ans"><b>No — EA runs on MT5 desktop platform only.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q67</span> Does the EA require an internet backup for uninterrupted trading?</summary><div class="ans"><b>Recommended.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Install -->
+    <div class="faq-cat cat-install">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-download"></i></div><h3>🅗 Installation &amp; Delivery</h3><div class="count">8 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q68</span> How will I receive the EA after purchase?</summary><div class="ans"><b>Via Email — Instant Delivery within 1 Hour.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q69</span> How long does it take to deliver the EA after payment?</summary><div class="ans"><b>Instant delivery within 1 Hour.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q70</span> Do I get an installation guide or video tutorial?</summary><div class="ans"><b>Yes — PDF Guide + Step-by-Step Video.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q71</span> Do I get remote installation support?</summary><div class="ans"><b>Available on request via email.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q72</span> Is the setup one-time or do I need to reinstall every month?</summary><div class="ans"><b>One-Time Setup.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q73</span> How do I update to a new version of the EA?</summary><div class="ans"><b>Free Updates via Email — Lifetime.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q74</span> Do you help with initial optimization for my broker/account?</summary><div class="ans"><b>Yes — via provided 7+ preset .set files &amp; email support.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q75</span> What if the EA fails to install or shows errors?</summary><div class="ans"><b>Contact Admin at <a href="#" data-mailto="1"><span class="em-txt"></span></a>.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Performance -->
+    <div class="faq-cat cat-perf">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-chart-line"></i></div><h3>🅘 Performance &amp; Strategy</h3><div class="count">8 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q76</span> What kind of trading strategy does the EA follow?</summary><div class="ans"><b>AI-based Ultra-Fast HFT Scalping strategy on XAUUSD (Gold).</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q77</span> Is it scalping, hedging, martingale, or grid-based?</summary><div class="ans"><b>Pure Scalping — No martingale, no grid.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q78</span> What is the historical win rate percentage?</summary><div class="ans"><b>90% to 95%.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q79</span> What is the expected profit per month/year?</summary><div class="ans"><b>Depends on lot size, risk mode &amp; broker conditions — historically strong &amp; consistent.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q80</span> Are back-test results available?</summary><div class="ans"><b>Yes — screenshots &amp; details shared on request.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q81</span> Are live account statements available for verification?</summary><div class="ans"><b>Yes — on request.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q82</span> Does the EA perform well in trending / ranging / news markets?</summary><div class="ans"><b>Yes — 7+ preset .set files cover all market conditions &amp; sessions.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q83</span> How many trades does the EA place daily on average?</summary><div class="ans"><b>Depends on selected preset — typically multiple micro-scalp trades per session.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Support -->
+    <div class="faq-cat cat-support">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-headset"></i></div><h3>🅙 Support &amp; After-Sales</h3><div class="count">7 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q84</span> What kind of support do you provide after purchase?</summary><div class="ans"><b>Lifetime Email Support at <a href="#" data-mailto="1"><span class="em-txt"></span></a>.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q85</span> Is customer support available 24/7 or business hours only?</summary><div class="ans"><b>Response within 1–2 hours, worldwide, almost 24×7.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q86</span> How can I contact you (Email, WhatsApp, Telegram, Live Chat)?</summary><div class="ans"><b>Primary channel — Email (<a href="#" data-mailto="1"><span class="em-txt"></span></a>). Use the "Contact Us Or Query" button for one-tap Gmail.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q87</span> Do you provide free updates to the EA?</summary><div class="ans"><b>Yes — Free Lifetime Updates.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q88</span> Do you provide guidance on money management?</summary><div class="ans"><b>Yes — inside the "Detailed Instructions of Use" &amp; "DO's and DON'Ts" PDFs.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q89</span> Do you help with strategy tuning for my account style?</summary><div class="ans"><b>Yes — via 7+ preset .set files &amp; email support.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q90</span> Do you provide user community/forum access?</summary><div class="ans"><b>Available on request.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Security -->
+    <div class="faq-cat cat-security">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-shield-halved"></i></div><h3>🅚 Security &amp; Trust</h3><div class="count">6 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q91</span> Is my payment secure?</summary><div class="ans"><b>Yes — 100% crypto (USDT TRC20 / BEP20), fully verified on-chain.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q92</span> Is the EA safe from malware or hidden code?</summary><div class="ans"><b>Yes — original developer file, scanned &amp; verified.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q93</span> Do you share my account or personal data with third parties?</summary><div class="ans"><b>NO — Never.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q94</span> Is the EA password-protected against copying/sharing?</summary><div class="ans"><b>Yes — protected by Secure &amp; Safe Individual License Keys.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q95</span> Is the payment gateway secure and encrypted?</summary><div class="ans"><b>Yes — direct on-chain USDT transactions.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q96</span> How do I trust that this is not a scam?</summary><div class="ans"><b>Original developer team (Oracle Gold Scalper Admin), verifiable crypto payments, lifetime support &amp; free updates.</b></div></details>
+      </div>
+    </div>
+
+    <!-- Legal -->
+    <div class="faq-cat cat-legal">
+      <div class="faq-cat-head"><div class="ico"><i class="fa-solid fa-gavel"></i></div><h3>🅛 Legal &amp; Risk Disclaimer</h3><div class="count">6 FAQs</div></div>
+      <div class="faq-list">
+        <details class="faq"><summary><span class="q-num">Q97</span> Is using an EA legal in my country?</summary><div class="ans"><b>Yes — in most countries; please check local regulations.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q98</span> Do you take responsibility if I lose money using the EA?</summary><div class="ans"><b>NO — Trading involves risk. The EA is a tool; final decisions &amp; capital management are the buyer's responsibility.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q99</span> What are the risks associated with automated trading?</summary><div class="ans"><b>Market risk, slippage, broker execution issues — all inherent to live trading.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q100</span> Is there any legal contract or terms of use?</summary><div class="ans"><b>Yes — see the Terms &amp; Conditions section below.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q101</span> Do you guarantee profits?</summary><div class="ans"><b>NO — No one can guarantee profits in trading. We only guarantee a genuine product &amp; support.</b></div></details>
+        <details class="faq"><summary><span class="q-num">Q102</span> Are refunds allowed if performance is not as expected?</summary><div class="ans"><b>NO — All payments are non-refundable and non-adjustable.</b></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Testimonials</div>
+      <h2>What Traders <span class="grad">Are Saying</span></h2>
+      <p>Real feedback from real traders running Oracle Gold Scalper on live accounts across the world.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Paid $99 in USDT TRC20, confirmation came in minutes. EA landed in my inbox within an hour. Running Oracle Gold Scalper on my MT5 Pro account — gold scalps are quick and consistent. Best $99 I've spent."</p>
+        <div class="acct"><span>Network: <b>TRC20</b></span><span>Platform: <b>MT5</b></span><span>Package: <b>A</b></span></div>
+      </div>
+      <div class="t">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"I upgraded to Package B for unlimited accounts. The 7+ preset .set files cover every session — Asia, London, NY — and my win rate has been solid in the 92%+ range. Support is fast &amp; genuine."</p>
+        <div class="acct"><span>Network: <b>BEP20</b></span><span>Platform: <b>MT5</b></span><span>Package: <b>B</b></span></div>
+      </div>
+      <div class="t">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Bought Package C for the full .mq5 source code. Licensing system is clean, code is documented, and I can rebrand it for my own trading room. Instant email delivery within 1 hour as promised."</p>
+        <div class="acct"><span>Network: <b>TRC20</b></span><span>Platform: <b>MT5</b></span><span>Package: <b>C</b></span></div>
+      </div>
+      <div class="t">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Been using Oracle Gold Scalper for weeks. Runs on my basic VPS with 2 GB RAM without a hiccup. Built-in SL/TP + news filter give me peace of mind. Highly recommended for gold traders."</p>
+        <div class="acct"><span>Network: <b>TRC20</b></span><span>Platform: <b>MT5</b></span><span>Package: <b>A</b></span></div>
+      </div>
+      <div class="t">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Contacted admin for a custom payment method through the Contact Us button — they replied in under 1 hour. Very professional. Delivery was exactly as promised."</p>
+        <div class="acct"><span>Network: <b>Alternate</b></span><span>Platform: <b>MT5</b></span><span>Package: <b>B</b></span></div>
+      </div>
+      <div class="t">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Prop firm friendly, works on my FTMO challenge account. Win rate holding above 90%, drawdown well controlled. Lifetime updates &amp; free preset files are a huge plus."</p>
+        <div class="acct"><span>Network: <b>BEP20</b></span><span>Platform: <b>MT5</b></span><span>Package: <b>B</b></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Terms -->
+<section class="terms">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Terms &amp; Conditions</div>
+      <h2>Please <span class="grad">Read Carefully</span></h2>
+      <p>By purchasing Oracle Gold Scalper (developed by Oracle Gold Scalper Admin) you accept the terms and conditions below.</p>
+    </div>
+    <div class="terms-box">
+      <h3><i class="fa-solid fa-file-contract"></i> Terms &amp; Conditions</h3>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i> All payments are strictly in <b>USDT (TRC20 or BEP20)</b> to the wallet addresses shown on this page.</li>
+        <li><i class="fa-solid fa-circle-check"></i> Send the exact payment amount of <b>$99 USDT (Package A)</b>, <b>$149 USDT (Package B)</b> or <b>$999 USDT (Package C)</b> to the given TRC20 or BEP20 address. Sending to a wrong network may result in permanent loss.</li>
+        <li><i class="fa-solid fa-circle-check"></i> After successful payment, email us the transaction screenshot along with your MT5 ID, Server Name, Email &amp; Country.</li>
+        <li><i class="fa-solid fa-circle-check"></i> Delivery time: <b>Instant delivery within 1 Hour</b> of payment confirmation, via email.</li>
+        <li><i class="fa-solid fa-circle-check"></i> License: <b>Lifetime</b>, non-expiring. Package A = 1 Real + Unlimited Demo; Package B &amp; C = Unlimited Real + Unlimited Demo Accounts.</li>
+        <li><i class="fa-solid fa-circle-check"></i> All payments are <b>strictly non-refundable and non-adjustable</b>. No trial version is provided; unlimited demo accounts included with purchase.</li>
+        <li><i class="fa-solid fa-circle-check"></i> Trading in gold (XAUUSD) &amp; other markets involves substantial risk. Past performance (including 90%–95% historical win rate) is not indicative of future results.</li>
+        <li><i class="fa-solid fa-circle-check"></i> Oracle Gold Scalper is a trading tool. Final trading decisions &amp; capital management remain the sole responsibility of the buyer.</li>
+        <li><i class="fa-solid fa-circle-check"></i> Reselling, redistributing, or reverse-engineering the EA (except Package C source code within its licensing terms) is strictly prohibited.</li>
+        <li><i class="fa-solid fa-circle-check"></i> For any alternate payment method or bulk enquiry, please contact us via the "Contact Us Or Query" section.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Start Scalping Gold <span class="grad">Like a Pro</span></h2>
+    <p>Join hundreds of traders worldwide using Oracle Gold Scalper. One-time payment — Lifetime license — Instant delivery within 1 Hour. Developed by Oracle Gold Scalper Admin.</p>
+    <div class="cta-buttons">
+      <a href="#pricing" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Get Your Package Now</a>
+      <a href="#contact" class="btn btn-gold"><i class="fa-solid fa-envelope"></i> Contact Us Or Query</a>
+      <a href="#" data-mailto="1" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> Email Support</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="brand-logo">
+        <div class="badge"><img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFF3C4'/%3E%3Cstop offset='.45' stop-color='%23F4D03F'/%3E%3Cstop offset='1' stop-color='%23B8860B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='33' fill='none' stroke='url%28%23g%29' stroke-width='17'/%3E%3Cellipse cx='37' cy='29' rx='13' ry='6.5' fill='rgba%28255,255,255,.45%29' transform='rotate%28-32 37 29%29'/%3E%3C/svg%3E" alt="Oracle Gold Scalper"/></div>
+        <span>Oracle Gold Scalper</span>
+      </div>
+      <p>Professional AI-based Ultra-Fast HFT Scalping Expert Advisor exclusively for Gold (XAUUSD) on MetaTrader 5. Developed by <b style="color:#F4D03F">Oracle Gold Scalper Admin</b>.</p>
+      <div class="socials">
+        <a href="https://t.me/m/tYe0k8ctZWQ1" target="_blank" rel="noopener" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        <a href="#" data-mailto="1" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="#contact" title="Contact"><i class="fa-solid fa-headset"></i></a>
+        <a href="#faqs" title="FAQs"><i class="fa-solid fa-circle-question"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4><i class="fa-solid fa-link"></i> Quick Links</h4>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#specs">Specifications</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#how">How to Buy</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4><i class="fa-solid fa-headset"></i> Support</h4>
+      <ul>
+        <li><a href="#" data-mailto="1">Email Support</a></li>
+        <li><a href="#faqs">Read FAQs</a></li>
+        <li><a href="#contact">Contact Us Or Query</a></li>
+        <li>Response Time: 1–2 hrs</li>
+        <li>Instant Delivery within 1 Hour</li>
+      </ul>
+    </div>
+    <div>
+      <h4><i class="fa-solid fa-envelope"></i> Contact</h4>
+      <p><i class="fa-solid fa-envelope" style="color:var(--gold-2)"></i>
+        <span style="color:#F4D03F;font-weight:700;user-select:all;-webkit-user-select:all;cursor:text;word-break:break-all">
+          <a href="#" data-mailto="1"><span class="em-txt"></span></a>
+        </span>
+      </p>
+      <p style="margin-top:8px"><i class="fa-solid fa-globe" style="color:var(--gold-2)"></i> Worldwide Support · 24×7</p>
+      <div class="risk">
+        <b><i class="fa-solid fa-circle-exclamation"></i> Risk Disclaimer:</b> Trading foreign exchange and gold (XAUUSD) on margin carries a high level of risk and may not be suitable for all investors. Past performance is not indicative of future results. Oracle Gold Scalper (developed by Oracle Gold Scalper Admin) is a trading tool — final decisions and capital management remain the responsibility of the buyer. All payments are <b>non-refundable and non-adjustable</b>.
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © <span id="yr"></span> Oracle Gold Scalper · All rights reserved · Developed by Oracle Gold Scalper Admin
+  </div>
+</footer>
+
+<!-- Floating buttons -->
+<div class="fc">
+  <a href="#" data-mailto="1" class="fc-mail" title="Email Us"><i class="fa-solid fa-envelope"></i></a>
+  <a href="#contact" class="fc-query" title="Contact Us Or Query"><i class="fa-solid fa-comments"></i></a>
+  <button class="fc-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+</div>
+
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i> Wallet address copied to clipboard!</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Copy crypto address
+function copyAddr(id){
+  const el = document.getElementById(id);
+  const txt = el.innerText.trim();
+  navigator.clipboard.writeText(txt).then(function(){
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  }).catch(function(){
+    // fallback
+    const r = document.createRange();
+    r.selectNode(el);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  });
+}
+
+// Auto-close other FAQs when one opens (accordion behavior optional)
+// (kept multiple open by default; comment out below to enforce accordion)
+// document.querySelectorAll('.faq').forEach(function(d){
+//   d.addEventListener('toggle', function(){
+//     if(d.open){ document.querySelectorAll('.faq').forEach(function(x){ if(x!==d) x.open=false; }); }
+//   });
+// });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script>
+/* Runtime email builder — escapes server-side email obfuscation */
+(function(){
+  var addr = 'helporaclegoldscalper' + '@' + 'gmail.com';
+  var sub  = encodeURIComponent('Oracle Gold Scalper - Support Request');
+  var body = encodeURIComponent('Hello Oracle Gold Scalper Admin,\n\n');
+  var link = 'mailto:' + addr + '?subject=' + sub + '&body=' + body;
+  document.querySelectorAll('a[data-mailto]').forEach(function(a){
+    a.setAttribute('href', link);
+    a.setAttribute('target', '_blank');
+  });
+  document.querySelectorAll('.em-txt').forEach(function(el){ el.textContent = addr; });
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
